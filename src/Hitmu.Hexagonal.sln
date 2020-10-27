@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30611.23
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hitmu.Abstractions.Core", "Hitmu.Abstractions.Core\Hitmu.Abstractions.Core.csproj", "{96928920-BB6B-49C6-BB49-2B8A22B1DA87}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitmu.Abstractions.Context", "Hitmu.Abstractions.Context\Hitmu.Abstractions.Context.csproj", "{87B04083-1C7F-4AEA-BF78-581D652D1C8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitmu.Abstractions.Interactions", "Hitmu.Abstractions.Interactions\Hitmu.Abstractions.Interactions.csproj", "{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Application", "Application", "{0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{29466CF9-C9C6-4799-8ABB-97EC17077851}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitmu.Abstractions.Core.Tests", "Hitmu.Abstractions.Core.Tests\Hitmu.Abstractions.Core.Tests.csproj", "{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96928920-BB6B-49C6-BB49-2B8A22B1DA87}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96928920-BB6B-49C6-BB49-2B8A22B1DA87}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96928920-BB6B-49C6-BB49-2B8A22B1DA87}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96928920-BB6B-49C6-BB49-2B8A22B1DA87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87B04083-1C7F-4AEA-BF78-581D652D1C8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87B04083-1C7F-4AEA-BF78-581D652D1C8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87B04083-1C7F-4AEA-BF78-581D652D1C8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87B04083-1C7F-4AEA-BF78-581D652D1C8C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96928920-BB6B-49C6-BB49-2B8A22B1DA87} = {0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}
+		{87B04083-1C7F-4AEA-BF78-581D652D1C8C} = {0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}
+		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51} = {0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}
+		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D} = {29466CF9-C9C6-4799-8ABB-97EC17077851}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F39B5AA6-F962-4391-B76D-8D817C9F3026}
+	EndGlobalSection
+EndGlobal
