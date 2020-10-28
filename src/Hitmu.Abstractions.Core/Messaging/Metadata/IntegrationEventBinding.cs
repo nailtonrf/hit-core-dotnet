@@ -9,8 +9,7 @@ namespace Hitmu.Abstractions.Core.Messaging.Metadata
             messageRequestType)
         {
             HandlerType = handlerType;
-            HandlerMethod = HandlerType.GetMethod(MessagingConstants.IntegrationEventHandlerName,
-                new[] {messageRequestType, MessagingConstants.CancelationTokenType});
+            HandlerMethod = HandlerType.GetMethod(MessagingConstants.IntegrationEventHandlerName, new[] { messageRequestType });
         }
 
         public override Type HandlerType { get; }

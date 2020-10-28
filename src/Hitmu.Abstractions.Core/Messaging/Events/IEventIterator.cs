@@ -2,7 +2,7 @@
 
 namespace Hitmu.Abstractions.Core.Messaging.Events
 {
-    public interface IEventMediator
+    public interface IEventIterator
     {
         Task Publish<TEvent>(TEvent @event) where TEvent : IEvent;
     }

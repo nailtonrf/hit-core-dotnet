@@ -25,7 +25,7 @@ namespace Hitmu.Abstractions.Core.Results
         {
             return IsValid
                 ? $"Valid<{typeof(TValue).Name}>({Value})"
-                : $"ErrorResult<{typeof(TValue).Name}>({ErrorMessage})";
+                : $"Invalid<{typeof(TValue).Name}>({ErrorMessage})";
         }
 
         public override bool Equals(object obj)

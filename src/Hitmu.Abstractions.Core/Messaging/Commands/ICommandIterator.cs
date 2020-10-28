@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 
 namespace Hitmu.Abstractions.Core.Messaging.Commands
 {
-    public interface ICommandMediator
+    public interface ICommandIterator
     {
         /// <summary>
         ///     Process a command in the current service.

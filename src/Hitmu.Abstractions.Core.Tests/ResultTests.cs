@@ -26,7 +26,7 @@ namespace Hitmu.Abstractions.Core.Tests
         public void Should_Create_Error_Result_ToString()
         {
             var result = Result<int>.Error<int>(ErrorMessage.Error("error"));
-            result.ToString().Should().Be("ErrorResult<Int32>(error)");
+            result.ToString().Should().Be("Invalid<Int32>(error)");
         }
 
         [Fact]
