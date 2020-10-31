@@ -7,20 +7,15 @@ namespace Hitmu.Abstractions.Core.Messaging.Metadata
     {
         public static Binding Create(BindingType bindingType, Type handlerType, Type[] requestArguments)
         {
-            switch (bindingType)
+            return bindingType switch
             {
-                case BindingType.Command:
-                    return new CommandBinding(handlerType, requestArguments.FirstOrDefault(),
-                        requestArguments.LastOrDefault());
-                case BindingType.IntegrationEvent:
-                    return new IntegrationEventBinding(handlerType, requestArguments.FirstOrDefault());
-                case BindingType.Query:
-                    return new QueryBinding(handlerType, requestArguments.FirstOrDefault(),
-                        requestArguments.LastOrDefault());
-                case BindingType.Event:
-                    return new EventBinding(handlerType, requestArguments.FirstOrDefault());
-            }
-            throw new InvalidOperationException($"BindigType {bindingType} does not exists.");
+                BindingType.Command => (Binding) new CommandBinding(handlerType, requestArguments.FirstOrDefault(),
+                    requestArguments.LastOrDefault()),
+                BindingType.Query => new QueryBinding(handlerType, requestArguments.FirstOrDefault(),
+                    requestArguments.LastOrDefault()),
+                BindingType.Event => new EventBinding(handlerType, requestArguments.FirstOrDefault()),
+                _ => throw new InvalidOperationException($"BindigType {bindingType} does not exists.")
+            };
         }
     }
 }

@@ -60,12 +60,12 @@ namespace Hitmu.Abstractions.Core.Messaging.Routing
 
         public RoutingConfiguration<TProvider> Publish<TEvent>(string publisherName) where TEvent : IEvent
         {
-            return ConfigureRouting(publisherName, typeof(TEvent).Name, BindingType.IntegrationEvent);
+            return ConfigureRouting(publisherName, typeof(TEvent).Name, BindingType.Event);
         }
 
         public RoutingConfiguration<TProvider> Subscribe<TEvent>(string listenerName) where TEvent : IEvent
         {
-            return ConfigureSubscription(listenerName, typeof(TEvent).Name, BindingType.IntegrationEvent);
+            return ConfigureSubscription(listenerName, typeof(TEvent).Name, BindingType.Event);
         }
 
         public RoutingConfiguration<TProvider> RouteTo<TCommand, TCommandResult>(string endpointName)
@@ -82,8 +82,7 @@ namespace Hitmu.Abstractions.Core.Messaging.Routing
 
         public IEnumerable<MessageRoute> GetEventPublications()
         {
-            return _messageRoutes.Values.Where(p =>
-                p.BindingType == BindingType.IntegrationEvent || p.BindingType == BindingType.Event);
+            return _messageRoutes.Values.Where(p => p.BindingType == BindingType.Event);
         }
 
         public IEnumerable<MessageRoute> GetRoutedCommands()
@@ -101,8 +100,8 @@ namespace Hitmu.Abstractions.Core.Messaging.Routing
 
         public Result<MessageRoute> GetRouteToMessage<TMessage>(TMessage message)
         {
-            return message == null 
-                ? ErrorMessage.Error($"Argument {nameof(message)} not found.") 
+            return message == null
+                ? ErrorMessage.Error($"Argument {nameof(message)} not found.")
                 : GetRouteToMessage(message.GetType().Name);
         }
     }

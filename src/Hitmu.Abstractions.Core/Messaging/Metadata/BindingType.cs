@@ -4,7 +4,6 @@
     {
         Command = 1,
         Event = 2,
-        IntegrationEvent = 3,
-        Query = 4
+        Query = 3
     }
 }
