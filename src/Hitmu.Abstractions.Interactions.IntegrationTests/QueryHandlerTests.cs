@@ -19,8 +19,8 @@ namespace Hitmu.Abstractions.Interactions.IntegrationTests
             applicationContext.Start();
             using (var scope = applicationContext.BeginScope())
             {
-                var queryMediator = scope.GetService<IIteratorContext>();
-                var result = queryMediator.RequestAsync(new QueryRequest(), new CancellationToken()).GetAwaiter()
+                var iteratorContext = scope.GetService<IIteratorContext>();
+                var result = iteratorContext.RequestAsync(new QueryRequest(), new CancellationToken()).GetAwaiter()
                     .GetResult();
                 result.Should().NotBeNull();
                 result.IsValid.Should().BeTrue();
