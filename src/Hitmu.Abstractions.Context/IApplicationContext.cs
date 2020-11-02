@@ -1,6 +1,7 @@
 ﻿using Hitmu.Abstractions.Core.Initializer;
 using Microsoft.Extensions.Configuration;
 using System;
+using System.Reflection;
 
 namespace Hitmu.Abstractions.Context
 {
@@ -11,6 +12,7 @@ namespace Hitmu.Abstractions.Context
         IConfiguration Configuration { get; }
 
         IApplicationContext Load(IInitializer module);
+        IApplicationContext LoadAllFromAssembly(Assembly assembly);
         void InitializeMediators();
 
         IRequestScope BeginScope();

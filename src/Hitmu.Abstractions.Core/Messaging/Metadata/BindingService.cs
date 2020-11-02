@@ -2,6 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Hitmu.Abstractions.Core.Messaging.Commands;
+using Hitmu.Abstractions.Core.Messaging.Events;
+using Hitmu.Abstractions.Core.Messaging.Queries;
 
 namespace Hitmu.Abstractions.Core.Messaging.Metadata
 {
@@ -38,10 +41,9 @@ namespace Hitmu.Abstractions.Core.Messaging.Metadata
 
         public void LoadFromServices(IServiceCollection services)
         {
-            //LoadTypeFromServices(services, BindingType.Command, typeof(ICommandHandler<,>));
-            //LoadTypeFromServices(services, BindingType.Event, typeof(IEventHandler<>));
-            //LoadTypeFromServices(services, BindingType.IntegrationEvent, typeof(IIntegrationEventHandler<>));
-            //LoadTypeFromServices(services, BindingType.Query, typeof(IQueryHandler<,>));
+            LoadTypeFromServices(services, BindingType.Command, typeof(ICommandHandler<,>));
+            LoadTypeFromServices(services, BindingType.Event, typeof(IEventHandler<>));
+            LoadTypeFromServices(services, BindingType.Query, typeof(IQueryHandler<,>));
         }
 
         public IEnumerable<Binding> All() => _bindingMetadata.Values;

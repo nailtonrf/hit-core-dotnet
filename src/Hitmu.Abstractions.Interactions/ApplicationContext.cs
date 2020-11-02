@@ -1,6 +1,10 @@
 ﻿using Hitmu.Abstractions.Context;
 using Hitmu.Abstractions.Core.Initializer;
+using Hitmu.Abstractions.Core.Messaging.Commands;
+using Hitmu.Abstractions.Core.Messaging.Events;
 using Hitmu.Abstractions.Core.Messaging.Metadata;
+using Hitmu.Abstractions.Core.Messaging.Queries;
+using Hitmu.Abstractions.Interactions.Decorators;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -14,7 +18,6 @@ namespace Hitmu.Abstractions.Interactions
         private static readonly object Locker = new object();
         private static ApplicationContext? _currentContext;
         private readonly List<IInitializer> _components;
-        private readonly List<Assembly> _componentsAssemblies;
 
         private readonly IServiceCollection _serviceCollection;
 
@@ -27,7 +30,6 @@ namespace Hitmu.Abstractions.Interactions
 
             ApplicationId = Guid.NewGuid();
             _components = new List<IInitializer>();
-            _componentsAssemblies = new List<Assembly>();
             Configuration = new ConfigurationBuilder().Build();
         }
 
@@ -43,10 +45,17 @@ namespace Hitmu.Abstractions.Interactions
             {
                 lock (Locker)
                 {
-                    if (_currentContext == null)
-                        throw new InvalidOperationException("ApplicationContext was not initialized!");
+                    if (_currentContext == null) throw new InvalidOperationException("ApplicationContext was not initialized!");
                     return _currentContext;
                 }
+            }
+        }
+
+        public static void Clear()
+        {
+            lock (Locker)
+            {
+                _currentContext?.Dispose();
             }
         }
 
@@ -59,15 +68,20 @@ namespace Hitmu.Abstractions.Interactions
             if (module == null) throw new ArgumentNullException(nameof(module));
             module.Initialize(_serviceCollection);
             _components.Add(module);
+            return this;
+        }
 
-            var assemblyComponent = module.GetType().Assembly;
-            AddAssemblyToLoad(assemblyComponent);
+        public IApplicationContext LoadAllFromAssembly(Assembly assembly)
+        {
+            _serviceCollection.InitializeTypeWithTransientLifetime(assembly, typeof(ICommandHandler<,>));
+            _serviceCollection.InitializeTypeWithTransientLifetime(assembly, typeof(IEventHandler<>));
+            _serviceCollection.InitializeTypeWithTransientLifetime(assembly, typeof(IQueryHandler<,>));
             return this;
         }
 
         public void InitializeMediators()
         {
-            InitializeModuleMediators();
+            InitializeDecorators();
         }
 
         public IRequestScope BeginScope()
@@ -99,15 +113,9 @@ namespace Hitmu.Abstractions.Interactions
             _currentContext = null;
         }
 
-        private void AddAssemblyToLoad(Assembly assemblyToLoad)
+        private void InitializeDecorators()
         {
-            if (!_componentsAssemblies.Contains(assemblyToLoad)) _componentsAssemblies.Add(assemblyToLoad);
-        }
-
-        private void InitializeModuleMediators()
-        {
-            //_serviceCollection.InitializeDecorator(typeof(ICommandHandler<,>), typeof(CommandHandlerDecorator<,>));
-            //_serviceCollection.InitializeDecorator(typeof(IIntegrationEventHandler<>), typeof(IntegrationEventHandlerDecorator<>));
+            _serviceCollection.InitializeDecorator(typeof(ICommandHandler<,>), typeof(CommandHandlerDecorator<,>));
         }
 
         private void InitializeModulesWithStarterContract()
@@ -131,8 +139,7 @@ namespace Hitmu.Abstractions.Interactions
             }
         }
 
-        public static ApplicationContext CreateContext(string applicationName, IConfiguration configuration,
-            IServiceCollection services)
+        public static ApplicationContext CreateContext(string applicationName, IConfiguration configuration, IServiceCollection services)
         {
             lock (Locker)
             {

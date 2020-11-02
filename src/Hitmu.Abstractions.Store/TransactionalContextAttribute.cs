@@ -5,10 +5,9 @@ namespace Hitmu.Abstractions.Store
 {
     public sealed class TransactionalContextAttribute : Attribute
     {
-        public TransactionalContextAttribute(Type contextType,
-            IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
+        public TransactionalContextAttribute(Type contextType, IsolationLevel isolationLevel = IsolationLevel.ReadCommitted)
         {
-            ContextType = contextType;
+            ContextType = contextType ?? throw new ArgumentNullException(nameof(contextType));
             IsolationLevel = isolationLevel;
         }
 

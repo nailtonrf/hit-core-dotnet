@@ -15,7 +15,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{29466CF9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hitmu.Abstractions.Core.Tests", "Hitmu.Abstractions.Core.Tests\Hitmu.Abstractions.Core.Tests.csproj", "{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitmu.Abstractions.Store", "Hitmu.Abstractions.Store\Hitmu.Abstractions.Store.csproj", "{E65209A9-14C5-458D-A936-0342A8B1DE63}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hitmu.Abstractions.Store", "Hitmu.Abstractions.Store\Hitmu.Abstractions.Store.csproj", "{E65209A9-14C5-458D-A936-0342A8B1DE63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hitmu.Abstractions.Interactions.IntegrationTests", "Hitmu.Abstractions.Interactions.IntegrationTests\Hitmu.Abstractions.Interactions.IntegrationTests.csproj", "{E481FBB0-855F-4B1E-8FC5-244C0A805020}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -43,6 +45,10 @@ Global
 		{E65209A9-14C5-458D-A936-0342A8B1DE63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E65209A9-14C5-458D-A936-0342A8B1DE63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E65209A9-14C5-458D-A936-0342A8B1DE63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E481FBB0-855F-4B1E-8FC5-244C0A805020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E481FBB0-855F-4B1E-8FC5-244C0A805020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E481FBB0-855F-4B1E-8FC5-244C0A805020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E481FBB0-855F-4B1E-8FC5-244C0A805020}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -53,6 +59,7 @@ Global
 		{23A850D2-4A8E-4D9D-8B1E-8CB8E3F9EB51} = {0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}
 		{FEDE83EC-2B3D-431E-B944-95EA4A9CB14D} = {29466CF9-C9C6-4799-8ABB-97EC17077851}
 		{E65209A9-14C5-458D-A936-0342A8B1DE63} = {0B4545E0-2DD2-4C30-A1C1-888A3B1469C6}
+		{E481FBB0-855F-4B1E-8FC5-244C0A805020} = {29466CF9-C9C6-4799-8ABB-97EC17077851}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F39B5AA6-F962-4391-B76D-8D817C9F3026}
