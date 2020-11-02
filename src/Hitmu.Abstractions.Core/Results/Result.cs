@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Hitmu.Abstractions.Core.Results
 {
-    public struct Result<TValue> : IEquatable<Result<TValue>>
+    public readonly struct Result<TValue> : IEquatable<Result<TValue>>, IResult
     {
         public bool IsValid { get; }
         public TValue Value { get; }

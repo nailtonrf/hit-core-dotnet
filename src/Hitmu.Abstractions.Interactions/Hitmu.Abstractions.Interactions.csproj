@@ -8,4 +8,18 @@
     <NoWarn>1701;1702,1591</NoWarn>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="3.1.9" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.1.9" />
+    <PackageReference Include="Scrutor" Version="3.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hitmu.Abstractions.Context\Hitmu.Abstractions.Context.csproj" />
+    <ProjectReference Include="..\Hitmu.Abstractions.Core\Hitmu.Abstractions.Core.csproj" />
+    <ProjectReference Include="..\Hitmu.Abstractions.Store\Hitmu.Abstractions.Store.csproj" />
+  </ItemGroup>
+
 </Project>

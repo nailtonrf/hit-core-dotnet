@@ -10,7 +10,7 @@ namespace Hitmu.Abstractions.Context
         string ApplicationName { get; }
         IConfiguration Configuration { get; }
 
-        IApplicationContext UseModule(IInitializer module);
+        IApplicationContext Load(IInitializer module);
         void InitializeMediators();
 
         IRequestScope BeginScope();
